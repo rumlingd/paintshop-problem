@@ -1,13 +1,3 @@
-# Paint Shop Problem Readme #
-
-
-### How to run ###
-
-* e.g python main.py text-files/example1.txt
-
-### Algorithm Approach ###
-If one wishes to calculate preprocess data again
-* Run `make preprocess_data` from the terminal
 
 # Paintshop Problem
 
