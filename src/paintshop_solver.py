@@ -115,13 +115,13 @@ class PaintShopSolver(object):
             for index, sol in enumerate(solution):
                 current_check = [index + 1, sol]
                 if current_check in cust:
-                    satisfied_custs.append(1)
+                    satisfied_custs.append('satisfied')
                     break
 
                 else:
                     pass
 
-        if sum(satisfied_custs) is len(self.custs):
+        if len(satisfied_custs) is len(self.custs):
             return solution
 
         else:
