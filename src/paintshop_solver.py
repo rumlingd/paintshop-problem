@@ -55,10 +55,17 @@ class PaintShopSolver(object):
 
         """
         candidates = []
-        for prod in product(*self.custs):
-            prod = list(prod)
-            for picky_cust in self.picky_custs:
-                prod.append(picky_cust)
+        if len(self.picky_custs) > 0:
+            for prod in product(*self.custs):
+                prod = list(prod)
+
+                for picky_cust in self.picky_custs:
+                    prod.append(picky_cust)
+                    candidates.append(prod)
+
+        elif len(self.picky_custs) is 0:
+            for prod in product(*self.custs):
+                prod = list(prod)
                 candidates.append(prod)
 
         return candidates
@@ -146,6 +153,8 @@ class PaintShopSolver(object):
             valid_sols.append(valid_sol)
 
         if valid_sols.count(no_sol_string) != len(solutions):
+            # Remove 'No solution exists' entries in place
+
             valid_sols[:] = [x for x in valid_sols if x != no_sol_string]
             final_sol = valid_sols[0]
         else:
